@@ -1,4 +1,5 @@
 {
+  "type": "module",
   "scripts": {
     "start": "cls && node index.ts",
     "dev": "node --run start -- --watch"
