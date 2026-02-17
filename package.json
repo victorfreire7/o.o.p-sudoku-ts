@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "start": "cls && node index.ts",
+    "dev": "node --run start -- --watch"
+  },
+  "dependencies": {
+    "prompt-sync": "^4.2.0",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.3",
+    "@types/prompt-sync": "^4.2.3"
+  }
+}
