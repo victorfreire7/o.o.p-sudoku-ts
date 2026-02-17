@@ -37,12 +37,13 @@ export default class Block implements TypeBlock{ // class que cria os blocos
     ];
 
     createBlock(): Array<Array<number>> {
-        const b: Array<Array<number>> = this.block;
+        const b: Array<Array<number>> = [
+            [0, 0, 0],
+            [0, 0, 0]
+        ];
         b[0][this.getRandomNumber(0, 2)] = this.getRandomNumber(1, 6);
         b[1][this.getRandomNumber(0, 2)] = this.getRandomNumber(1, 6);
-        console.log('block antes da auth: ' + b);
-        this.authBlock(b);
-        return b;
+        return this.authBlock(b);
     }
 
     authBlock(block: Array<Array<number>>): Array<Array<number>>{
@@ -60,8 +61,6 @@ export default class Block implements TypeBlock{ // class que cria os blocos
                 }
             }
         }
-        console.log('novo block: ' + block);
-
         return block;
     }
 
