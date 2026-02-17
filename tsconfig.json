@@ -5,6 +5,10 @@
     "lib": ["ESNext", "DOM"],
     "outDir": "./dist",
     "strict": false,
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
   },
 }
+
+// allowImportingTsExtensions
