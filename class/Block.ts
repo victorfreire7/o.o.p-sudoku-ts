@@ -13,6 +13,18 @@
     - authBlock()
 */
 
+/* lógica aplicada em authBlock(): Array<Array<number>> {}
+    block[0][0] == block[1][0] 
+    block[0][0] == block[1][1]
+    block[0][0] == block[1][2]
+    block[0][1] == block[1][0]
+    block[0][1] == block[1][1]
+    block[0][1] == block[1][2]
+    block[0][2] == block[1][0]
+    block[0][2] == block[1][1]
+    block[0][2] == block[1][2] 
+*/
+
 interface TypeBlock {
     block: Array<Array<number>>
 }
@@ -33,45 +45,23 @@ export default class Block implements TypeBlock{ // class que cria os blocos
         return b;
     }
 
-    /* lógica necessaria:
-
-        if(
-            block[0][0] == block[1][0] ||
-            block[0][0] == block[1][1] ||
-            block[0][0] == block[1][2] ||
-            block[0][1] == block[1][0] ||
-            block[0][1] == block[1][1] ||
-            block[0][1] == block[1][2] ||
-            block[0][2] == block[1][0] ||
-            block[0][2] == block[1][1] ||
-            block[0][2] == block[1][2] 
-        )
-    
-    */
-
     authBlock(block: Array<Array<number>>): Array<Array<number>>{
-        for(var i = 0; i < block.length; i++){ // ACESSO O ARRAY 1, E DEPOIS O ARRAY 2
-            for(var j = 0; j < block[i].length; j++){ // [I][J] ACESSA O VALOR DO ARRAY I SELECIONADO
-                var temp = j;
-                // console.log('j: ' + j)
-                for(var k = 0; k < block[i].length; k++){
-                    
-                    if(temp !== k){
-                        if(block[i][temp] !== 0){
-                            if(block[i][temp] == block[i+1][k]){
-                                block[i+1][k] = this.getRandomNumber(1, 6);
-                                console.log('repetiu')
-                                break;
-                            }
+        for(var i = 1; i < block.length; i++){ // i = 1, pois eu quero q o laço só se repita no primeiro array.
+            for(var j = 0; j < block[i].length; j++){ // guardo cada number em block[i][j];
+                for(var k = 0; k < block[i].length; k++){ // repito o processo pra conseguir a sequencia: j = 0, k = 0, k = 1, k = 2, j = 1; e assim por diante...
+                    if(block[i-1][j] === block[i][k]){
+                        if(block[i-1][j] > 0 && block[i][k] > 0){ // como iniciamos i por 1, eu faço [i-1] para acessar o primeiro array da sequencia.
+                            var rand = this.getRandomNumber(1, 6);
+                            if(rand === block[i][k]) rand = this.getRandomNumber(1, 6)
+                            block[i][k] = rand
+                            break;
                         }
                     }
                 }
             }
         }
-
         console.log('novo block: ' + block);
 
-        // this.authBlock(block);
         return block;
     }
 
@@ -79,6 +69,3 @@ export default class Block implements TypeBlock{ // class que cria os blocos
         return Math.floor(Math.random() * (max - min + 1) + min);
     }
 }
-
-const b = new Block();
-console.log(b.createBlock())
