@@ -21,14 +21,40 @@ console.clear();
 console.log(next);
 */
 
-import Sudoku from './class/Sudoku';
+// const prompt2 = require('prompt-sync')();
+import  Prompt from 'prompt-sync'
+const prompt = Prompt();
+import Sudoku from './class/Sudoku.ts';
+import { start } from 'node:repl';
 
-abstract class Game{
-    constructor(
-        private readonly prompt: Record<string, unknown> = require('prompt-sync')()
-    ){}
+class Game{
+    // constructor(
+    //     private prompt = Prompt()
+    // ){}
 
     startGame(): void{
-        console.log(Sudoku.getSudoku());
+        Sudoku.getSudoku();
+        const game: Array<Array<Array<number>>> = Sudoku.getGame();
+        
+        console.log('    1  2  3       4  5  6')
+        console.log('A', game[0][0], '|', game[1][0]);
+        console.log('B', game[0][1], '|', game[1][1]);
+        console.log('  ------------+-----------')
+        console.log('C', game[2][0], '|', game[3][0]);
+        console.log('D', game[2][1], '|', game[3][1]);
+        console.log('  ------------+-----------')
+        console.log('E', game[4][0], '|', game[5][0]);
+        console.log('F', game[4][1], '|', game[5][1]);
+        console.log();
+        
+        // const index: string = prompt('Qual posição deseja alterar? ');
+        // const value: string = prompt('Qual sua próxima jogada? ');
+        // console.clear();
+        // console.log(`index: ${index}`);
+        // console.log(`value: ${value}`);
     }
 }
+
+const game = new Game();
+game.startGame();
+
