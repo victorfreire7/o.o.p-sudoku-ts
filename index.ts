@@ -2,39 +2,15 @@
 // QUE POR SUA VEZ, ALTERA O BLOCK.
 // ESTE ARQUIVO TAMBÉM LIDA COM TODO O CONSOLE.LOG()
 // E AVISA QUANDO O JOGO TERMINOU.
-/*
-const prompt2 = require('prompt-sync')();
 
-
-console.log('    1  2  3       4  5  6')
-console.log('A', [0, 0, 2], '|', [3, 0, 0]);
-console.log('B', [4, 0, 6], '|',[5, 0, 1]);
-console.log('  ------------+-----------')
-console.log('C', [5, 0, 0], '|',[0, 0, 2]);
-console.log('D', [0, 0, 3], '|',[1, 0, 0]);
-console.log('  ------------+-----------')
-console.log('E', [3, 0, 0], '|',[0, 0, 4]);
-console.log('F', [0, 1, 4], '|',[2, 5, 0]);
-console.log();
-const next = prompt2('Qual sua próxima jogada? ')
-console.clear();
-console.log(next);
-*/
-
-// const prompt2 = require('prompt-sync')();
 import  Prompt from 'prompt-sync'
-const prompt = Prompt();
 import Sudoku from './class/Sudoku.ts';
-import { start } from 'node:repl';
+const prompt = Prompt();
 
 class Game{
-    // constructor(
-    //     private prompt = Prompt()
-    // ){}
-
     startGame(): void{
-        Sudoku.getSudoku();
-        const game: Array<Array<Array<number>>> = Sudoku.getGame();
+        Sudoku.getSudoku(); // instancio a class Sudoku e crio a matriz do jogo
+        const game: Array<Array<Array<number>>> = Sudoku.getGame(); // retorno a matriz do jogo
         
         console.log('    1  2  3       4  5  6')
         console.log('A', game[0][0], '|', game[1][0]);
@@ -47,14 +23,14 @@ class Game{
         console.log('F', game[4][1], '|', game[5][1]);
         console.log();
         
-        // const index: string = prompt('Qual posição deseja alterar? ');
-        // const value: string = prompt('Qual sua próxima jogada? ');
-        // console.clear();
-        // console.log(`index: ${index}`);
-        // console.log(`value: ${value}`);
+        const line: string = prompt('Qual linha deseja alterar? ');
+        const column: string = prompt('Qual coluna deseja alterar? ');
+        const value: string = prompt('Qual sua número deseja jogar? ');
+        console.clear();
+        console.log(`${line}${column} ${value}`);
+        this.startGame();
     }
 }
 
 const game = new Game();
 game.startGame();
-
