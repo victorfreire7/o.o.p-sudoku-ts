@@ -30,14 +30,28 @@ Este projeto utiliza  os padrões de projeto Singlton e Factory Method, encontra
 
 # Modo de Iniciação:
 
-```
+``` bash
     git clone https://github.com/victorfreire7/o.o.p-sudoku-ts.git
 ```
 
-```
+``` bash
     npm install 
 ```
 
-```
+``` bash
     npm run start 
+```
+
+# Dependências:
+
+``` json
+
+  "dependencies": {
+    "prompt-sync": "^4.2.0",
+    "typescript": "^5.9.3"
+  },
+  "devDependencies": {
+    "@types/node": "^25.2.3",
+    "@types/prompt-sync": "^4.2.3"
+  }
 ```
