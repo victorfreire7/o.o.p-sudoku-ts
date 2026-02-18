@@ -9,23 +9,8 @@ export default class Sudoku{
     private static sudoku: Sudoku | null = null; // explicação em 'getSudoku()'
     private game: Array<Array<Array<number>>> = [];
 
-    setPromptInSudoku(): void {
-        // aqui eu vou alterar o sudoku de acordo com o prompt
-        // e depois executar getSudoku(); para retorna-lo
-    }
-
-
-
     static getGame(): Array<Array<Array<number>>> | null {
         return Sudoku.sudoku.game;
-    }
-
-    static setGame(): void {
-        
-    }
-
-    authGame(): void {
-        
     }
 
     static getSudoku(): Sudoku { // to fazendo isso pra nao permitir uma instancia externa e nem uma segunda instancia
