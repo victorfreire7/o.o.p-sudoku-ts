@@ -8,7 +8,7 @@ import Sudoku from './class/Sudoku.ts';
 const prompt = Prompt();
 
 class Game{
-    startGame(): void{
+    static startGame(): void{
         Sudoku.getSudoku(); // instancio a class Sudoku e crio a matriz do jogo
         const game: Array<Array<Array<number>>> = Sudoku.getGame(); // retorno a matriz do jogo
         
@@ -31,6 +31,4 @@ class Game{
         this.startGame();
     }
 }
-
-const game = new Game();
-game.startGame();
+Game.startGame();
