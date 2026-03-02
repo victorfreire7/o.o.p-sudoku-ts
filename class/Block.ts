@@ -41,12 +41,12 @@ export default class Block implements TypeBlock{ // class que cria os blocos
             [0, 0, 0],
             [0, 0, 0]
         ];
-        b[0][this.getRandomNumber(0, 2)] = this.getRandomNumber(1, 6);
-        b[1][this.getRandomNumber(0, 2)] = this.getRandomNumber(1, 6);
+        b[0][this.getRandomNumber(0, 2)] = this.getRandomNumber(1, 6); // na primeira linha adiciono um numero aleatorio em uma posiçao aleatoria
+        b[1][this.getRandomNumber(0, 2)] = this.getRandomNumber(1, 6); // repito o processo na segunda linha da matriz
         return this.authBlock(b);
     }
 
-    authBlock(block: Array<Array<number>>): Array<Array<number>>{
+    authBlock(block: Array<Array<number>>): Array<Array<number>>{ // essa funçao verifica se existem numeros repetidos nos dois arrays da matriz. caso haja, eles sao substituidos por novos. a lógica aplicada foi mostrada acima
         for(var i = 1; i < block.length; i++){ // i = 1, pois eu quero q o laço só se repita no primeiro array.
             for(var j = 0; j < block[i].length; j++){ // guardo cada number em block[i][j];
                 for(var k = 0; k < block[i].length; k++){ // repito o processo pra conseguir a sequencia: j = 0, k = 0, k = 1, k = 2, j = 1; e assim por diante...

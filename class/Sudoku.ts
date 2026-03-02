@@ -6,8 +6,8 @@ import Block from './Block.ts';
 
 export default class Sudoku{
     private block: Block = new Block(); // vou usar essa instancia para criar os blocks com block.createBlock();
-    private static sudoku: Sudoku | null = null; // explicação em 'getSudoku()'
-    private game: Array<Array<Array<number>>> = [];
+    private static sudoku: Sudoku | null = null; // explicação em 'getSudoku()'. essa chave faz menção a class em que ela esta inserida.
+    private game: Array<Array<Array<number>>> = []; // essa chave é a estrutura do jogo. ele quem armazena todas as matrizes de blocos do jogo
 
     static getGame(): Array<Array<Array<number>>> | null {
         return Sudoku.sudoku.game;
